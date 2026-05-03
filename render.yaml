@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: mpg-to-mp4-converter
+    env: node
+    buildCommand: |
+      apt-get update && apt-get install -y ffmpeg && npm install
+    startCommand: node server.js
+    plan: free
+    envVars:
+      - key: NODE_ENV
+        value: production
